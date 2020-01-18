@@ -64,10 +64,11 @@ class LoginViewController: UIViewController {
                          
                          DispatchQueue.main.async {
                             
-//                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                            let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-//                            self.navigationController?.pushViewController(loginViewController, animated: true)
-                            //self.present(loginViewController, animated: true, completion: nil)
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let MyPageController = storyboard.instantiateViewController(withIdentifier: "MyPageController")
+                            self.navigationController?.pushViewController(MyPageController, animated: true)
+//                            self.present(MyPageController, animated: true, completion: nil)
+                            print("マイページへの画面遷移成功だよ")
                          }
                          
                      } catch{
