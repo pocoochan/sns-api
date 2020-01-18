@@ -55,12 +55,22 @@ class LoginViewController: UIViewController {
                     print(error)
                     
                  let responseString: String =  String(data: data!, encoding: .utf8)!
-                 print(responseString)
+                    print(responseString)
+                     
                      
                      do {
                          let response: [String: Any] = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
                          
                         print(response)
+                        
+                        //辞書からtokenを取り出す
+                        let tokenValue = response["token"]
+                        print(tokenValue!)
+                        
+                        //取り出したtokenをユーザーデフォルトに保存する
+                        let defaults = UserDefaults.standard
+                        defaults.set(tokenValue!, forKey: "responseToken")
+                        print("ユーザーデフォルトにtokenを保存したよ")
                          
                          DispatchQueue.main.async {
                             
