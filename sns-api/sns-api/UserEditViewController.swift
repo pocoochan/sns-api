@@ -25,9 +25,8 @@ class UserEditViewController: UIViewController {
         defaults.set(mySwitch1.isOn, forKey: "switchOn")
         print("保存完了したよ")
     }
-    //ログインボタンを押した瞬間にUserデフォルト参照する
-    //
     
+    //ログインボタンを押した瞬間にUserデフォルト参照する
     @IBAction func readStatus(_ sender: Any) {
         let defaults = UserDefaults.standard
         mySwitch2.isOn = defaults.bool(forKey: "switchOn")
