@@ -65,12 +65,14 @@ class LoginViewController: UIViewController {
                         
                         //辞書からtokenを取り出す
                         let tokenValue = response["token"]
+                        let idValue = response["id"]
                         print(tokenValue!)
                         
                         //取り出したtokenをユーザーデフォルトに保存する
                         let defaults = UserDefaults.standard
                         defaults.set(tokenValue!, forKey: "responseToken")
-                        print("ユーザーデフォルトにtokenを保存したよ")
+                        defaults.set(idValue!, forKey: "responseId")
+                        print("ユーザーデフォルトにtokenとidを保存したよ")
                          
                          DispatchQueue.main.async {
                             
