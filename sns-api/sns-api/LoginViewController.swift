@@ -14,7 +14,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signInEmail: UITextField!
     @IBOutlet weak var signInPassword: UITextField!
     @IBOutlet weak var signInPassWordConfirmation: UITextField!
-    
     @IBAction func signIn(_ sender: Any) {
 
          let config: URLSessionConfiguration = URLSessionConfiguration.default
@@ -66,13 +65,20 @@ class LoginViewController: UIViewController {
                         //辞書からtokenを取り出す
                         let tokenValue = response["token"]
                         let idValue = response["id"]
+                        let nameValue = response["name"]
+                        let bioValue = response["bio"]
                         print(tokenValue!)
                         
                         //取り出したtokenをユーザーデフォルトに保存する
                         let defaults = UserDefaults.standard
                         defaults.set(tokenValue!, forKey: "responseToken")
                         defaults.set(idValue!, forKey: "responseId")
+                        defaults.set(nameValue!, forKey: "responseName")
+                        defaults.set(bioValue!, forKey: "responseBio")
                         print("ユーザーデフォルトにtokenとidを保存したよ")
+                        print(defaults)
+                        print(defaults.string(forKey: "responseName"))
+                        
                          
                          DispatchQueue.main.async {
                             
@@ -89,6 +95,7 @@ class LoginViewController: UIViewController {
                      
                  }
                  task.resume()
+        
     }
     
     
