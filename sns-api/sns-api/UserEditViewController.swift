@@ -117,6 +117,7 @@ class UserEditViewController: UIViewController {
 
                 print("ユーザー削除されたよ")
                 
+                
 //                DispatchQueue.main.async {
 //                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //                    let ViewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
