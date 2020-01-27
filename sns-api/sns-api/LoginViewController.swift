@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signInEmail: UITextField!
     @IBOutlet weak var signInPassword: UITextField!
     @IBOutlet weak var signInPassWordConfirmation: UITextField!
+    @IBOutlet weak var signIn: UIButton!
     @IBAction func signIn(_ sender: Any) {
 
          let config: URLSessionConfiguration = URLSessionConfiguration.default
@@ -83,7 +84,7 @@ class LoginViewController: UIViewController {
                          DispatchQueue.main.async {
                             
                             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                            let MyPageController = storyboard.instantiateViewController(withIdentifier: "MyPageController")
+                            let MyPageController = storyboard.instantiateViewController(withIdentifier: "TabBarController")
                             self.navigationController?.pushViewController(MyPageController, animated: true)
 //                            self.present(MyPageController, animated: true, completion: nil)
                             print("マイページへの画面遷移成功だよ")
@@ -101,6 +102,10 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
            super.viewDidLoad()
-           // Do any additional setup after loading the view.
+        
+           let rgba = UIColor(red: 235/255, green: 105/255, blue: 122/255, alpha: 1.0)
+           signIn.backgroundColor = rgba
+           signIn.layer.cornerRadius = 10.0
+        
        }
 }
