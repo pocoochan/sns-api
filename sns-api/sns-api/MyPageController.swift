@@ -172,3 +172,5 @@ class myPageCustomCell: UITableViewCell{
     @IBOutlet weak var postEdit: UIButton!
 }
 
+
+
