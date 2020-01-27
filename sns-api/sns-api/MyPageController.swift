@@ -96,7 +96,6 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
             } catch{
                 
             }
-            
         }
         task.resume()
     }
@@ -172,3 +171,4 @@ class myPageCustomCell: UITableViewCell{
     @IBOutlet weak var postDate: UILabel!
     @IBOutlet weak var postEdit: UIButton!
 }
+
