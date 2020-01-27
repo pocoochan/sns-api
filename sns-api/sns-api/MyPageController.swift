@@ -171,6 +171,3 @@ class myPageCustomCell: UITableViewCell{
     @IBOutlet weak var postDate: UILabel!
     @IBOutlet weak var postEdit: UIButton!
 }
-
-
-
