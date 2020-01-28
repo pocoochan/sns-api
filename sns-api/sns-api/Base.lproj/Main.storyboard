@@ -773,10 +773,10 @@
             </objects>
             <point key="canvasLocation" x="4128.985507246377" y="-86.383928571428569"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Bar View Controller-->
         <scene sceneID="twm-4W-Gzc">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Byu-Dw-fjm" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationBarViewController" automaticallyAdjustsScrollViewInsets="NO" id="Byu-Dw-fjm" customClass="NavigationBarViewController" customModule="sns_api" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ppO-vc-X1a">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
