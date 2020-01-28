@@ -178,7 +178,6 @@
         <!--My Page Controller-->
         <scene sceneID="p8f-IF-fR0">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xOV-5b-0fi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="MyPageController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="d2W-4x-cvl" customClass="MyPageController" customModule="sns_api" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Epl-Xd-6FO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -317,6 +316,7 @@
                         <outlet property="myTV" destination="6nc-nf-NkB" id="GhI-tv-HKd"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xOV-5b-0fi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3427.5362318840585" y="143.97321428571428"/>
         </scene>
@@ -371,12 +371,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="122"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h7O-dv-3iF">
-                                            <rect key="frame" x="20" y="11" width="100" height="100"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="100" id="gfE-Vg-BcY"/>
-                                                <constraint firstAttribute="width" constant="100" id="iRg-Oq-ium"/>
-                                            </constraints>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h7O-dv-3iF">
+                                            <rect key="frame" x="20" y="17" width="70" height="70"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPB-YH-zbK">
                                             <rect key="frame" x="133" y="72" width="281" height="21"/>
@@ -393,10 +390,6 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="h7O-dv-3iF" firstAttribute="leading" secondItem="veE-OZ-OcN" secondAttribute="leading" constant="20" id="3uY-3O-knR"/>
-                                        <constraint firstItem="h7O-dv-3iF" firstAttribute="centerY" secondItem="veE-OZ-OcN" secondAttribute="centerY" id="fTa-NV-Sia"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="postDate" destination="aPB-YH-zbK" id="DPs-YR-Ga6"/>
@@ -784,6 +777,7 @@
                 <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="x04-9X-hb5" customClass="TabBarController" customModule="sns_api" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="M9o-qp-qnB">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

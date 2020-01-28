@@ -11,10 +11,11 @@ import UIKit
 class AllTimelineController: UITableViewController {
     
     var response: [[String: Any]]?
+    var userPhotos = ["defaultIcon1","defaultIcon2","defaultIcon3","defaultIcon4"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         /*
          すべてのタイムラインを取得するAPI
          */
@@ -76,31 +77,31 @@ class AllTimelineController: UITableViewController {
     /*
      APIで取得したデータをテーブルビューに表示させるよ
      */
-    var userPhotos = ["1","2","defaultIcon1","defaultIcon2"]
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
 //        let image:UIImage = UIImage(named:"defaultIcon")!
 //        let resizeImage = image.resized(toWidth: 50)
         
+        let random_userPhotos = self.userPhotos.randomElement()
         
         let cellIdentifier: String = "AllTimelineCustomCell"
         if let myCell: AllTimelineCustomCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? AllTimelineCustomCell {
 //            myCell.userProfileIcon?.image = UIImage(named: self.userPhotos[].randomElement()!)
-            myCell.userProfileIcon?.image = UIImage(named: "defaultIcon")
+            myCell.userProfileIcon?.image = UIImage(named: random_userPhotos!)
 //            myCell.userProfileName?.text = response?[indexPath.row](["user"] as! [String:Any])["name"]
             myCell.postDate?.text = response?[indexPath.row]["created_at"] as? String
-            myCell.userProfileIcon.layer.cornerRadius = 50
+            myCell.userProfileIcon.layer.cornerRadius = 35
             return myCell
             
         }
         
         let myCell = AllTimelineCustomCell(style: .default, reuseIdentifier: "AllTimelineCustomCell")
 //        myCell.userProfileIcon?.image = resizeImage
-        myCell.userProfileIcon?.image = UIImage(named: "defaultIcon")
+        myCell.userProfileIcon?.image = UIImage(named: random_userPhotos!)
         myCell.userProfileName?.text = response?[indexPath.row]["text"] as? String
         myCell.postDate?.text = response?[indexPath.row]["created_at"] as? String
-         myCell.userProfileIcon.layer.cornerRadius = 50
+         myCell.userProfileIcon.layer.cornerRadius = 35
         return myCell
     }
     

@@ -110,7 +110,8 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
     if let myCell: myPageCustomCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? myPageCustomCell {
 
         myCell.userIcon?.image = UIImage(named: "defaultIcon")
-        myCell.myUserName?.text = response?[indexPath.row](["user"] as! [String:Any])["name"]
+        //↓こちらが問題の場所です。
+//        myCell.myUserName?.text = response?[indexPath.row](["user"] as! [String:Any])["name"]
         myCell.myPost?.text = response?[indexPath.row]["text"] as? String
         myCell.postDate?.text = response?[indexPath.row]["created_at"] as? String
         myCell.userIcon.layer.cornerRadius = 50
@@ -119,7 +120,7 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     let myCell = myPageCustomCell(style: .default, reuseIdentifier: "myPageCustomCell")
         myCell.userIcon?.image = UIImage(named: "defaultIcon")
-        myCell.myUserName?.text = response?[indexPath.row](["user"] as! [String:Any])["name"]
+//        myCell.myUserName?.text = response?[indexPath.row](["user"] as! [String:Any])["name"]
         myCell.myPost?.text = response?[indexPath.row]["text"] as? String
         myCell.postDate?.text = response?[indexPath.row]["created_at"] as? String
         myCell.userIcon.layer.cornerRadius = 50
@@ -155,12 +156,12 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
 
-    //
-    //    //画面をはなれてるときに読み込まれる
-    //    override func viewWillDisappear(_ animated: Bool) {
-    //        super.viewWillDisappear(animated)
-    //
-    //    }
+    
+        //画面をはなれてるときに読み込まれる
+        override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+    
+        }
 
 }
 
