@@ -120,6 +120,8 @@ class ViewController: UIViewController {
         
         self.navigationController?.navigationBar.tintColor = UIColor(red: 235/255, green: 105/255, blue: 122/255, alpha: 1.0)
         
+//        self.navigationItem.titleView = UIImageView(image:UIImage(named:"navBar"))
+
         
         //タブバー
 //        let tabBarController = UITabBarController()

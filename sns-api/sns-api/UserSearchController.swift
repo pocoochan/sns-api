@@ -86,18 +86,18 @@ class UserSearchController: UITableViewController {
         if let myCell: UserSearchCustomCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? UserSearchCustomCell {
             //            myCell.userProfileIcon?.image = UIImage(named: self.userPhotos[].randomElement()!)
             myCell.userIcon?.image = UIImage(named: "defaultIcon")
-//            myCell.userName?.text = response?[indexPath.row](["user"] as! [String:Any])["name"]
-            myCell.userBio?.text = response?[indexPath.row]["created_at"] as? String
-            myCell.userIcon.layer.cornerRadius = 50
+            myCell.userName?.text = response?[indexPath.row]["name"] as? String
+            myCell.userBio?.text = response?[indexPath.row]["bio"] as? String
+            myCell.userIcon.layer.cornerRadius = 35
             return myCell
         }
         
         let myCell = UserSearchCustomCell(style: .default, reuseIdentifier: "UserSearchCustomCell")
         //        myCell.userProfileIcon?.image = resizeImage
         myCell.userIcon?.image = UIImage(named: "defaultIcon")
-        //            myCell.userName?.text = response?[indexPath.row](["user"] as! [String:Any])["name"]
-        myCell.userBio?.text = response?[indexPath.row]["created_at"] as? String
-        myCell.userIcon.layer.cornerRadius = 50
+        myCell.userName?.text = response?[indexPath.row]["name"] as? String
+        myCell.userBio?.text = response?[indexPath.row]["bio"] as? String
+        myCell.userIcon.layer.cornerRadius = 35
         return myCell
     }
     
@@ -161,6 +161,7 @@ class UserSearchController: UITableViewController {
                 let response: [String: Any] = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
                 
                 print("フォロー完了")
+                print("フォロー中という表示にかえたい")
                 
                 
             } catch{
@@ -173,8 +174,9 @@ class UserSearchController: UITableViewController {
         
     }
     @IBAction func follow(_ sender: Any) {
-        
-        
+//        func changeButtonText() {
+//            followButton.setTitle("フォロー中", for: .normal)
+//        }
         
     }
     
