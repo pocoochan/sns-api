@@ -18,7 +18,7 @@ class TabBarController: UITabBarController {
         // カスタマイズ
 
         // アイコンの色
-        UITabBar.appearance().tintColor = UIColor(red: 38/255, green: 192/255, blue: 184/255, alpha: 1.0)
+        UITabBar.appearance().tintColor = UIColor(red: 235/255, green: 105/255, blue: 122/255, alpha: 1.0)
         // 背景色
 //        UITabBar.appearance().barTintColor = UIColor(red: 66/255, green: 74/255, blue: 93/255, alpha: 1.0) // grey black
 

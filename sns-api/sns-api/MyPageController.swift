@@ -111,6 +111,7 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
         myCell.userIcon?.image = UIImage(named: "defaultIcon")
         //↓こちらでnameを取り出したいです。
+        myCell.myUserName?.text = (response?[indexPath.row]["user"] as? [String:Any])?["name"] as? String
 //        myCell.myUserName?.text = response?[indexPath.row](["user"] as! [String:Any])["name"]
         myCell.myPost?.text = response?[indexPath.row]["text"] as? String
         myCell.postDate?.text = response?[indexPath.row]["created_at"] as? String
@@ -120,6 +121,7 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     let myCell = myPageCustomCell(style: .default, reuseIdentifier: "myPageCustomCell")
         myCell.userIcon?.image = UIImage(named: "defaultIcon")
+        myCell.myUserName?.text = (response?[indexPath.row]["user"] as? [String:Any])?["name"] as? String
 //        myCell.myUserName?.text = response?[indexPath.row](["user"] as! [String:Any])["name"]
         myCell.myPost?.text = response?[indexPath.row]["text"] as? String
         myCell.postDate?.text = response?[indexPath.row]["created_at"] as? String
@@ -172,4 +174,5 @@ class myPageCustomCell: UITableViewCell{
     @IBOutlet weak var postDate: UILabel!
     @IBOutlet weak var postEdit: UIButton!
 }
+
 

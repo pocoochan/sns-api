@@ -83,27 +83,40 @@ class AllTimelineController: UITableViewController {
 //        let image:UIImage = UIImage(named:"defaultIcon")!
 //        let resizeImage = image.resized(toWidth: 50)
         
-        let random_userPhotos = self.userPhotos.randomElement()
+//        let f = DateFormatter()
+//        f.dateStyle = .long
+//        f.timeStyle = .medium
+//        let now = response?[indexPath.row]["created_at"]
+//        print(f.string(from: now as! Date))
+        
+        
+//        let random_userPhotos = self.userPhotos.randomElement()
         
         let cellIdentifier: String = "AllTimelineCustomCell"
         if let myCell: AllTimelineCustomCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? AllTimelineCustomCell {
-//            myCell.userProfileIcon?.image = UIImage(named: self.userPhotos[].randomElement()!)
-            myCell.userProfileIcon?.image = UIImage(named: random_userPhotos!)
-//            myCell.userProfileName?.text = response?[indexPath.row](["user"] as! [String:Any])["name"]
+            myCell.userProfileIcon?.image = UIImage(named: "defaultIcon")
+            myCell.userProfileName?.text = (response?[indexPath.row]["user"] as? [String:Any])?["name"] as? String
+            myCell.post?.text = response?[indexPath.row]["text"] as? String
             myCell.postDate?.text = response?[indexPath.row]["created_at"] as? String
+//            myCell.postDate?.text = f.string(from: response?[indexPath.row]["created_at"] as! Date)
             myCell.userProfileIcon.layer.cornerRadius = 35
             return myCell
             
         }
         
         let myCell = AllTimelineCustomCell(style: .default, reuseIdentifier: "AllTimelineCustomCell")
-//        myCell.userProfileIcon?.image = resizeImage
-        myCell.userProfileIcon?.image = UIImage(named: random_userPhotos!)
-        myCell.userProfileName?.text = response?[indexPath.row]["text"] as? String
+//        myCell.userProfileIcon?.image = UIImage(named: random_userPhotos!)
+        myCell.userProfileIcon?.image = UIImage(named: "defaultIcon")
+        myCell.userProfileName?.text = (response?[indexPath.row]["user"] as? [String:Any])?["name"] as? String
+        myCell.post?.text = response?[indexPath.row]["text"] as? String
         myCell.postDate?.text = response?[indexPath.row]["created_at"] as? String
+//        myCell.postDate?.text = f.string(from: response?[indexPath.row]["created_at"] as! Date)
          myCell.userProfileIcon.layer.cornerRadius = 35
+
         return myCell
     }
+    
+
     
     //生成するセルの個数
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -125,6 +138,7 @@ class AllTimelineCustomCell: UITableViewCell {
     @IBOutlet weak var userProfileIcon: UIImageView!
     @IBOutlet weak var userProfileName: UILabel!
     @IBOutlet weak var postDate: UILabel!
+    @IBOutlet weak var post: UILabel!
 }
 
 
