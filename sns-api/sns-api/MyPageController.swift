@@ -110,7 +110,7 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
     if let myCell: myPageCustomCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? myPageCustomCell {
 
         myCell.userIcon?.image = UIImage(named: "defaultIcon")
-        //↓こちらが問題の場所です。
+        //↓こちらでnameを取り出したいです。
 //        myCell.myUserName?.text = response?[indexPath.row](["user"] as! [String:Any])["name"]
         myCell.myPost?.text = response?[indexPath.row]["text"] as? String
         myCell.postDate?.text = response?[indexPath.row]["created_at"] as? String
@@ -172,3 +172,4 @@ class myPageCustomCell: UITableViewCell{
     @IBOutlet weak var postDate: UILabel!
     @IBOutlet weak var postEdit: UIButton!
 }
+
