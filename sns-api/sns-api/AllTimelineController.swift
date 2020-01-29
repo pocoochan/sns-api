@@ -72,6 +72,10 @@ class AllTimelineController: UITableViewController {
         }
         task.resume()
         
+        self.navigationController!.navigationBar.titleTextAttributes = [
+               .foregroundColor: UIColor(red: 46/255, green: 48/255, blue: 49/255, alpha: 1.0)
+               ]
+        
     }
     
     /*
@@ -130,7 +134,7 @@ class AllTimelineController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(107)
     }
-    
+
 }
 
 

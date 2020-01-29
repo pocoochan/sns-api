@@ -19,6 +19,7 @@ class ChatroomController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         
         // searchBarのプレースホルダー
         searchController.searchBar.placeholder = "検索したい文字列を入力してください"
@@ -88,6 +89,10 @@ class ChatroomController: UITableViewController {
             
         }
         task.resume()
+        
+        self.navigationController!.navigationBar.titleTextAttributes = [
+               .foregroundColor: UIColor(red: 46/255, green: 48/255, blue: 49/255, alpha: 1.0)
+               ]
     }
     
     
@@ -99,6 +104,7 @@ class ChatroomController: UITableViewController {
             myCell.chatroomName?.text = response?[indexPath.row]["name"] as? String
             //myCell.detailTextLabel?.text = response?[indexPath.row]["created_at"] as? String
             myCell.chatroomName?.numberOfLines = 0
+            myCell.sumpleImage.layer.cornerRadius = 20
             return myCell
         }
         
@@ -108,6 +114,7 @@ class ChatroomController: UITableViewController {
         myCell.chatroomName?.text = response?[indexPath.row]["name"] as? String
         // myCell.detailTextLabel?.text = response?[indexPath.row]["created_at"] as? String
         myCell.chatroomName?.numberOfLines = 0
+        myCell.sumpleImage.layer.cornerRadius = 20
         return myCell
     }
     
@@ -188,7 +195,8 @@ class ChatroomController: UITableViewController {
                 DispatchQueue.main.async {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let IndividualChatController = storyboard.instantiateViewController(withIdentifier: "IndividualChatController")
-                    self.present(IndividualChatController, animated: true, completion: nil)
+                    self.navigationController?.pushViewController(IndividualChatController, animated: true)
+//                    self.present(IndividualChatController, animated: true, completion: nil)
                     print("チャットルームへの画面遷移成功だよ")
                 }
                 
@@ -204,6 +212,7 @@ class ChatroomController: UITableViewController {
 
     }
     var userPhotos = ["1","2","3","4","5","6","7","8","9","10"]
+
 }
 
 class MyCustomCell: UITableViewCell {

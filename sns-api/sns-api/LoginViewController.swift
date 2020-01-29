@@ -85,8 +85,11 @@ class LoginViewController: UIViewController {
                             
                             let storyboard = UIStoryboard(name: "Main", bundle: nil)
                             let MyPageController = storyboard.instantiateViewController(withIdentifier: "TabBarController")
-                            self.navigationController?.pushViewController(MyPageController, animated: true)
-//                            self.present(MyPageController, animated: true, completion: nil)
+//                            self.navigationController?.pushViewController(MyPageController, animated: true)
+                            MyPageController.modalPresentationStyle = .fullScreen
+                            self.present(MyPageController, animated: true, completion: nil)
+                            
+                            
                             print("マイページへの画面遷移成功だよ")
                          }
                          

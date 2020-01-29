@@ -119,6 +119,9 @@ class ViewController: UIViewController {
 //        login.setTitleColor(UIColor = rgba, for: UIControl.State.normal)
         
         self.navigationController?.navigationBar.tintColor = UIColor(red: 235/255, green: 105/255, blue: 122/255, alpha: 1.0)
+        self.navigationController!.navigationBar.titleTextAttributes = [
+        .foregroundColor: UIColor(red: 46/255, green: 48/255, blue: 49/255, alpha: 1.0)
+        ]
         
 //        self.navigationItem.titleView = UIImageView(image:UIImage(named:"navBar"))
 
