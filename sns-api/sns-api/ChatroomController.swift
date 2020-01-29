@@ -90,6 +90,7 @@ class ChatroomController: UITableViewController {
         }
         task.resume()
         
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 235/255, green: 105/255, blue: 122/255, alpha: 1.0)
         self.navigationController!.navigationBar.titleTextAttributes = [
                .foregroundColor: UIColor(red: 46/255, green: 48/255, blue: 49/255, alpha: 1.0)
                ]
@@ -103,8 +104,8 @@ class ChatroomController: UITableViewController {
 //            myCell.sumpleImage.layer.cornerRadius = 50
             myCell.chatroomName?.text = response?[indexPath.row]["name"] as? String
             //myCell.detailTextLabel?.text = response?[indexPath.row]["created_at"] as? String
-            myCell.chatroomName?.numberOfLines = 0
-            myCell.sumpleImage.layer.cornerRadius = 20
+            myCell.chatroomName?.numberOfLines = 10
+            
             return myCell
         }
         
@@ -114,7 +115,7 @@ class ChatroomController: UITableViewController {
         myCell.chatroomName?.text = response?[indexPath.row]["name"] as? String
         // myCell.detailTextLabel?.text = response?[indexPath.row]["created_at"] as? String
         myCell.chatroomName?.numberOfLines = 0
-        myCell.sumpleImage.layer.cornerRadius = 20
+        myCell.sumpleImage.layer.cornerRadius = 10
         return myCell
     }
     

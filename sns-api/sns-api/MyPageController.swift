@@ -12,6 +12,25 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     var response: [[String: Any]]?
     
+    @IBOutlet weak var plofileIcon: UIImageView!
+    @IBOutlet weak var plofileName: UILabel!
+    @IBOutlet weak var plofileBio: UILabel!
+    
+    override func viewDidLoad() {
+        
+        myTV.delegate = self
+        myTV.dataSource = self
+       
+        
+        super.viewDidLoad()
+        
+        //マイページに名前と自己紹介を表示させる
+        let defaults = UserDefaults.standard
+        plofileName.text = defaults.string(forKey: "responseName")!
+        plofileBio.text = defaults.string(forKey: "responseBio")!
+    }
+    
+    
     @IBAction func gotoUserEditViewController(_ sender: Any) {
         DispatchQueue.main.async {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -38,10 +57,7 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
             print("タイムラインに遷移成功してるよ")
         }
     }
-    @IBOutlet weak var myName: UITextView!
-    @IBOutlet weak var myBio: UITextView!
-    
-    
+
     //    画面に遷移するたびに読み込まれる
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -87,12 +103,11 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
             do {
                 let response: [[String: Any]] = try JSONSerialization.jsonObject(with: data!, options: []) as! [[String: Any]]
                 
-                print(response)
-                self.response = response
-                //                DispatchQueue.main.async {
-                //                    self.tableView.reloadData()
-                //                }
-                //
+                    print(response)
+                    self.response = response
+                    DispatchQueue.main.async {
+                        self.myTV.reloadData()
+                    }
             } catch{
                 
             }
@@ -115,7 +130,7 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
 //        myCell.myUserName?.text = response?[indexPath.row](["user"] as! [String:Any])["name"]
         myCell.myPost?.text = response?[indexPath.row]["text"] as? String
         myCell.postDate?.text = response?[indexPath.row]["created_at"] as? String
-        myCell.userIcon.layer.cornerRadius = 50
+        myCell.userIcon.layer.cornerRadius = 35
         return myCell
     }
     
@@ -125,7 +140,7 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
 //        myCell.myUserName?.text = response?[indexPath.row](["user"] as! [String:Any])["name"]
         myCell.myPost?.text = response?[indexPath.row]["text"] as? String
         myCell.postDate?.text = response?[indexPath.row]["created_at"] as? String
-        myCell.userIcon.layer.cornerRadius = 50
+        myCell.userIcon.layer.cornerRadius = 35
         return myCell
     }
     
@@ -143,20 +158,7 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     
-    override func viewDidLoad() {
-        
-        myTV.delegate = self
-        myTV.dataSource = self
-       
-        
-        super.viewDidLoad()
-        
-        //マイページに名前と自己紹介を表示させる
-        let defaults = UserDefaults.standard
-        myName.text = defaults.string(forKey: "responseName")
-        myBio.text = defaults.string(forKey: "responseBio")
-    }
-    
+
 
     
         //画面をはなれてるときに読み込まれる
@@ -165,6 +167,8 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
         }
 
+    @IBAction func postEditButton(_ sender: Any) {
+    }
 }
 
 class myPageCustomCell: UITableViewCell{

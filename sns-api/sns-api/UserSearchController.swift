@@ -71,6 +71,10 @@ class UserSearchController: UITableViewController {
                    
                }
                task.resume()
+        
+        self.navigationController!.navigationBar.titleTextAttributes = [
+               .foregroundColor: UIColor(red: 46/255, green: 48/255, blue: 49/255, alpha: 1.0)
+               ]
 
     }
 

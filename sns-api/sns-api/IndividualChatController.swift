@@ -72,19 +72,23 @@ class IndividualChatController: UITableViewController {
         
     }
     
-    func tableView(in tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier: String = "MyChatCustomCell"
         if let myCell: MyChatCustomCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? MyChatCustomCell {
-//            myCell.chatUserName?.text = response?[indexPath.row]["user.bio"] as? String
+            myCell.plofileIcon?.image = UIImage(named: "defaultIcon")
+            myCell.chatUserName?.text = (response?[indexPath.row]["user"] as? [String:Any])?["name"] as? String
             myCell.chatMessage?.text = response?[indexPath.row]["text"] as? String
-//            myCell.chatPostTime?.text = response?[indexPath.row]["user.created_at"] as? String
+            myCell.chatPostTime?.text = (response?[indexPath.row]["user"] as? [String:Any])?["created_at"] as? String
+            myCell.plofileIcon.layer.cornerRadius = 35
             return myCell
         }
         
         let myCell = MyChatCustomCell(style: .default, reuseIdentifier: "MyChatCustomCell")
-//        myCell.chatUserName?.text = response?[indexPath.row]["user.bio"] as? String
+       myCell.plofileIcon?.image = UIImage(named: "defaultIcon")
+        myCell.chatUserName?.text = (response?[indexPath.row]["user"] as? [String:Any])?["name"] as? String
         myCell.chatMessage?.text = response?[indexPath.row]["text"] as? String
-//        myCell.chatPostTime?.text = response?[indexPath.row]["user.created_at"] as? String
+        myCell.chatPostTime?.text = (response?[indexPath.row]["user"] as? [String:Any])?["created_at"] as? String
+        myCell.plofileIcon.layer.cornerRadius = 35
         return myCell
     }
     
@@ -97,13 +101,14 @@ class IndividualChatController: UITableViewController {
     
     //1つ1つのセルの高さ
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(200)
+        return CGFloat(107)
     }
     
 }
 
 
 class MyChatCustomCell: UITableViewCell {
+    @IBOutlet weak var plofileIcon: UIImageView!
     @IBOutlet weak var chatUserName: UILabel!
     @IBOutlet weak var chatMessage: UILabel!
     @IBOutlet weak var chatPostTime: UILabel!
