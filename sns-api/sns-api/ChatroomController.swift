@@ -9,6 +9,7 @@
 import UIKit
 
 class ChatroomController: UITableViewController {
+    var userPhotos = ["1","2","3","4","5","6","7","8","9","10"]
     
     /*
      チャットルーム一覧を取得するAPI
@@ -111,12 +112,6 @@ class ChatroomController: UITableViewController {
             //タグを設定
             myCell.joinButton.tag = indexPath.row
 
-            // ボタンにタグを設定し、どのセルのボタンか判断する
-//            let joinButton = myCell.viewWithTag(1) as! UIButton
-//            joinButton.addTarget(self, action: #selector(joinButtonPush(_:)), for: .touchUpInside)
-//            joinButton.tag = indexPath.row //タグを設定
-//
-//            print(indexPath.section) //分けない限り0固定
             
             return myCell
         }
@@ -157,6 +152,7 @@ class ChatroomController: UITableViewController {
     //indexPath.rowばんめのセルの辞書のテキストIDは[indexPath.row][id]番だよ
     //
     
+
     @IBAction func joinButtonPush(_ sender: Any) {
         print([(sender as AnyObject).tag!])
         print("\([(sender as AnyObject).tag!])番目の行が選択されました")
@@ -224,90 +220,9 @@ class ChatroomController: UITableViewController {
 
         }
         task.resume()
+
+
     }
-    
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-//        //アクション実装
-//        print("\(indexPath.row)番目の行が選択されました")
-//        print("ここにindexPath.rowばんめの辞書をそのまま出したい")
-//        let indexRowDictionary = (response?[indexPath.row])!
-//        print(indexRowDictionary)
-//        let indexRowDictionaryId = indexRowDictionary["id"]!
-//        print(indexRowDictionaryId)
-//        //それを関数にいれる。その関数からIDを取得する。
-//        //タップされたら、インデックス取得、辞書す取得、ID取得。タップされた時点で画面遷移、API
-//        //レスポンスが返ってきているのはdidroad。画面を開いた瞬間。
-//
-//
-//        //セルの選択を解除
-//        tableView.deselectRow(at: indexPath, animated: true)
-//
-//
-//         /*
-//         チャット参加API
-//         */
-//        let config: URLSessionConfiguration = URLSessionConfiguration.default
-//
-//        let session: URLSession = URLSession(configuration: config)
-//
-//        //URLオブジェクトの生成
-//        let number = indexRowDictionaryId
-//        print(number)
-//        let url = URL(string: "https://teachapi.herokuapp.com/chatrooms/\(number)/join")!
-//        //URLRequestの生成
-//        var req: URLRequest = URLRequest(url: url)
-//        req.httpMethod = "POST"
-//
-//        //ヘッダーを付与
-//        let defaults = UserDefaults.standard
-//        let myToken = defaults.string(forKey: "responseToken")!
-//        req.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//        req.setValue("Bearer " + myToken, forHTTPHeaderField: "Authorization")
-//
-//
-//        //APIを呼ぶよ
-//        let task = session.dataTask(with: req){(data, response, error) in
-//            //            print(data)
-//            //            print(error)
-//
-//            let responseString: String =  String(data: data!, encoding: .utf8)!
-//            print(responseString)
-//
-//
-//            do {
-//                let response: [String: Any] = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
-//
-//                print(response)
-//
-//                //取得したチャットIDを保存する
-//                let defaults = UserDefaults.standard
-//                defaults.set(indexRowDictionaryId, forKey: "chatroomId")
-//                 print("ユーザーデフォルトにチャットidを保存したよ")
-//                 print(defaults.string(forKey: "chatroomId")!)
-//
-//
-//                //        別の画面に遷移
-//                DispatchQueue.main.async {
-//                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                    let IndividualChatController = storyboard.instantiateViewController(withIdentifier: "IndividualChatController")
-//                    self.navigationController?.pushViewController(IndividualChatController, animated: true)
-////                    self.present(IndividualChatController, animated: true, completion: nil)
-//                    print("チャットルームへの画面遷移成功だよ")
-//                }
-//
-//            } catch{
-//
-//            }
-//
-//        }
-//        task.resume()
-//
-        
-
-
-//    }
-    var userPhotos = ["1","2","3","4","5","6","7","8","9","10"]
-
 }
 
 class MyCustomCell: UITableViewCell {
