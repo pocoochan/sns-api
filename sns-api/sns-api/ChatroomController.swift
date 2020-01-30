@@ -132,6 +132,13 @@ class ChatroomController: UITableViewController {
         return CGFloat(107)
     }
     
+    
+    //ボタンが押されました
+    //(indexPath.row)番目のボタンが選択されました
+    //indexPath.rowばんめのボタンが置かれているセルはindexPath.rowばん
+    //indexPath.rowばんめのセルの辞書のテキストIDは[indexPath.row][id]番だよ
+    //
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         //アクション実装
         print("\(indexPath.row)番目の行が選択されました")

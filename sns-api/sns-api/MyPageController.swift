@@ -26,6 +26,8 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         //マイページに名前と自己紹介を表示させる
         let defaults = UserDefaults.standard
+        plofileIcon.image = UIImage(named: "defaultIcon")
+        plofileIcon.layer.cornerRadius = 35
         plofileName.text = defaults.string(forKey: "responseName")!
         plofileBio.text = defaults.string(forKey: "responseBio")!
     }
@@ -61,6 +63,8 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
     //    画面に遷移するたびに読み込まれる
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+
         
         let config: URLSessionConfiguration = URLSessionConfiguration.default
         
@@ -164,10 +168,90 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
         //画面をはなれてるときに読み込まれる
         override func viewWillDisappear(_ animated: Bool) {
             super.viewWillDisappear(animated)
+            
+//            //辞書からtokenを取り出す
+//            let tokenValue = response["token"]
+//            let idValue = response["id"]
+//            let nameValue = response["name"]
+//            let bioValue = response["bio"]
+//            print(tokenValue!)
+//
+//            let defaults = UserDefaults.standard
+//            defaults.set(nameValue!, forKey: "responseName")
+//            defaults.set(bioValue!, forKey: "responseBio")
     
         }
 
     @IBAction func postEditButton(_ sender: Any) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        alert.title = ""
+        alert.message = ""
+        
+        alert.addAction(
+            UIAlertAction(
+                title: "ツイートを削除",
+                style: .destructive,
+                handler: {(action) -> Void in
+                    let config: URLSessionConfiguration = URLSessionConfiguration.default
+                    
+                    let session: URLSession = URLSession(configuration: config)
+                    
+                    //URLオブジェクトの生成
+                    let defaults = UserDefaults.standard
+                    let number = defaults.string(forKey: "responseId")!
+                    print(myId)
+                    let url = URL(string: "https://teachapi.herokuapp.com/posts/\(number)")!
+                    //URLRequestの生成
+                    var req: URLRequest = URLRequest(url: url)
+                    req.httpMethod = "DELETE"
+                    
+                    //ヘッダーを付与
+                    let myToken = defaults.string(forKey: "responseToken")!
+                    req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                    req.setValue("Bearer " + myToken, forHTTPHeaderField: "Authorization")
+                    
+                    //APIを呼ぶよ
+                    let task = session.dataTask(with: req){(data, response, error) in
+                        
+                        
+                        do {
+                            let response: [String: Any] = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
+                            
+                            print(response)
+                            
+                            print("ユーザー削除されたよ")
+                            
+                            
+                            //                            DispatchQueue.main.async {
+                            //                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            //                                let ViewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
+                            //                                self.navigationController?.pushViewController(ViewController, animated: true)
+                            //                                print("ユーザーが削除されてサインインページに遷移したよ")
+                            //                            }
+                            
+                            
+                        } catch{
+                            
+                        }
+                        
+                    }
+                    task.resume()
+            })
+        )
+        
+        alert.addAction(
+            UIAlertAction(
+                title: "キャンセル",
+                style: .cancel,
+                handler: nil)
+        )
+        
+        self.present(
+            alert,
+            animated: true,
+            completion: {
+                print("アラートが表示された〜")
+        })
     }
 }
 

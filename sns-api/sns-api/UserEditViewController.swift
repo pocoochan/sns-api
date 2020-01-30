@@ -70,13 +70,15 @@ class UserEditViewController: UIViewController {
                 print("\(nameValue!)\(bioValue!)に変更されたよ")
                 
                 
-//                DispatchQueue.main.async {
-//                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                    let MyPageController = storyboard.instantiateViewController(withIdentifier: "MyPageController")
+                DispatchQueue.main.async {
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let MyPageController = storyboard.instantiateViewController(withIdentifier: "MyPageController")
 //                    self.navigationController?.pushViewController(MyPageController, animated: true)
-//                    //                            self.present(MyPageController, animated: true, completion: nil)
-//                    print("マイページへの画面遷移成功だよ")
-//                }
+//                    self.present(MyPageController, animated: true, completion: nil)
+                    print("ここで前のハーフモーグルっぽい感じを解除して下に消えるようにしてマイページに戻りたい")
+                    self.dismiss(animated: true, completion: nil)
+                    print("マイページへの画面遷移成功だよ")
+                }
                 
             } catch{
                 
