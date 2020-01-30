@@ -262,7 +262,7 @@
                                             <outlet property="myPost" destination="R97-6B-5OA" id="9OQ-Z1-3hO"/>
                                             <outlet property="myUserName" destination="dSc-Hm-idu" id="64b-ln-Zsb"/>
                                             <outlet property="postDate" destination="ECg-dE-B7T" id="30m-c9-t0C"/>
-                                            <outlet property="postEdit" destination="2OV-3p-3Pv" id="VeI-dx-rhx"/>
+                                            <outlet property="postEditButton" destination="2OV-3p-3Pv" id="yaP-OP-BBA"/>
                                             <outlet property="userIcon" destination="dIi-4L-tEr" id="bso-9A-lar"/>
                                         </connections>
                                     </tableViewCell>

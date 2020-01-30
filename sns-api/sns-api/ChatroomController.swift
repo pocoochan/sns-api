@@ -107,7 +107,6 @@ class ChatroomController: UITableViewController {
             myCell.sumpleImage.image = UIImage(named: self.userPhotos[indexPath.row])
             myCell.chatroomName?.text = response?[indexPath.row]["name"] as? String
             myCell.chatroomName?.numberOfLines = 10
-            
             myCell.joinButton.addTarget(self, action: #selector(joinButtonPush(_:)), for: .touchUpInside)
             //タグを設定
             myCell.joinButton.tag = indexPath.row
@@ -121,6 +120,9 @@ class ChatroomController: UITableViewController {
         myCell.chatroomName?.text = response?[indexPath.row]["name"] as? String
         myCell.chatroomName?.numberOfLines = 0
         myCell.sumpleImage.layer.cornerRadius = 10
+        myCell.joinButton.addTarget(self, action: #selector(joinButtonPush(_:)), for: .touchUpInside)
+        //タグを設定
+        myCell.joinButton.tag = indexPath.row
         
         // ボタンにタグを設定し、どのセルのボタンか判断する
 //        let joinButton = myCell.viewWithTag(1) as! UIButton
