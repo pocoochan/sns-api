@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var signInEmail: UITextField!
@@ -106,9 +106,23 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
            super.viewDidLoad()
         
-           let rgba = UIColor(red: 235/255, green: 105/255, blue: 122/255, alpha: 1.0)
-           signIn.backgroundColor = rgba
-           signIn.layer.cornerRadius = 10.0
+        let rgba = UIColor(red: 235/255, green: 105/255, blue: 122/255, alpha: 1.0)
+        signIn.backgroundColor = rgba
+        signIn.layer.cornerRadius = 10.0
+        
+        signInEmail.delegate = self
+        signInPassword.delegate = self
+        signInPassWordConfirmation.delegate = self
         
        }
+    
+         //キーボードを閉じる
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+            return true
+        }
+        
+        override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            self.view.endEditing(true)
+        }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
 //    @IBOutlet weak var myNaviBar: UINavigationBar!
     @IBOutlet weak var myLabel: UILabel!
@@ -112,6 +112,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        myName.delegate = self
+        myBio.delegate = self
+        myEmail.delegate = self
+        myPassword.delegate = self
+        myPassWordConfirmation.delegate = self
+        
+
+        
+        
         //ボタンの装飾
         let rgba = UIColor(red: 235/255, green: 105/255, blue: 122/255, alpha: 1.0)
         signUp.backgroundColor = rgba
@@ -142,6 +151,18 @@ class ViewController: UIViewController {
 //
 //        navigationController?.pushViewController(tabBarController, animated: true)
         // Do any additional setup after loading the view.
+    }
+    
+     //キーボードを閉じる
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+//        myName.text = textField.text
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        myName.text = myName.text
+        self.view.endEditing(true)
     }
 }
 
