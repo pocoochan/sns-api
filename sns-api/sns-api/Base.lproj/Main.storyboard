@@ -377,11 +377,14 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cof-uj-qDb">
-                                <rect key="frame" x="0.0" y="201" width="414" height="34"/>
+                                <rect key="frame" x="0.0" y="168" width="414" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" keyboardKey="YES"/>
+                                </accessibility>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="twitter"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -393,7 +396,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1SQ-NS-8d4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7062.3188405797109" y="748.66071428571422"/>
+            <point key="canvasLocation" x="5040.579710144928" y="133.92857142857142"/>
+        </scene>
+        <!--Post Edit Controller-->
+        <scene sceneID="ETP-Nz-fzV">
+            <objects>
+                <viewController storyboardIdentifier="postEditController" id="I9o-dG-z1Y" customClass="postEditController" customModule="sns_api" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vnj-b1-Bdt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5bJ-rW-lrn">
+                                <rect key="frame" x="-3" y="175" width="414" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Txl-eb-9tY">
+                                <rect key="frame" x="322" y="83" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="ツイート"/>
+                                <connections>
+                                    <action selector="postEditButton:" destination="I9o-dG-z1Y" eventType="touchUpInside" id="RAv-HW-PGL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="OuV-0x-9Cy"/>
+                    </view>
+                    <connections>
+                        <outlet property="postEditText" destination="5bJ-rW-lrn" id="CY3-sU-IPO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jii-x4-LEF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5742" y="129"/>
         </scene>
         <!--タイムライン-->
         <scene sceneID="uXi-kh-dah">
@@ -854,7 +892,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Uo-3l-Xtr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5039.130434782609" y="-86.383928571428569"/>
+            <point key="canvasLocation" x="5033" y="-504"/>
         </scene>
         <!--Navigation Bar View Controller-->
         <scene sceneID="twm-4W-Gzc">
