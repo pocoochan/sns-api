@@ -50,15 +50,6 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
     }
         
-    @IBAction func gotoTimeline(_ sender: Any) {
-        DispatchQueue.main.async {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let AllTimelineController = storyboard.instantiateViewController(withIdentifier: "AllTimelineController")
-            self.navigationController?.pushViewController(AllTimelineController, animated: true)
-//            self.present(AllTimelineController, animated: true, completion: nil)
-            print("タイムラインに遷移成功してるよ")
-        }
-    }
 
     //    画面に遷移するたびに読み込まれる
     override func viewWillAppear(_ animated: Bool) {
@@ -175,152 +166,10 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
 
     @IBAction func postEditButton(_ sender: Any) {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
-        alert.title = ""
-        alert.message = ""
-        
-        //ここからツイート編集
-        alert.addAction(
-            UIAlertAction(
-                title: "ツイート編集",
-                style: .default,
-                handler: {(action) -> Void in
-                    
-//                    print([(sender as AnyObject).tag!])
-//                    print("\([(sender as AnyObject).tag!])番目の行が選択されました")
-//                    print("ここにindexPath.rowばんめの辞書をそのまま出したい")
-//                    let indexRowDictionary = (self.response?[(sender as AnyObject).tag!])!
-//                    print(indexRowDictionary)
-//                    let indexRowDictionaryId = indexRowDictionary["id"]!
-//                    print(indexRowDictionaryId)
-//
-//                    let config: URLSessionConfiguration = URLSessionConfiguration.default
-//
-//                    let session: URLSession = URLSession(configuration: config)
-//
-//                    //テキストフィールドに入力されたStringと取得して変数にいれる
-//                    let text = postWrite.text
-//
-//                    //その変数たちを集めた変数をつくって、それをJSON形式でボディに付与する（1つめの辞書）
-//                    let editPostParams = [
-//                        "text": text,
-//                    ]
-//
-//                    //URLオブジェクトの生成
-//                    let number = indexRowDictionaryId
-//                    print(number)
-//                    let url = URL(string: "https://teachapi.herokuapp.com/posts/\(number)")!
-//                    //URLRequestの生成
-//                    var req: URLRequest = URLRequest(url: url)
-//                    req.httpMethod = "PUT"
-//
-//                    //ヘッダーを付与
-//                    let defaults = UserDefaults.standard
-//                    let myToken = defaults.string(forKey: "responseToken")!
-//                    req.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//                    req.setValue("Bearer " + myToken, forHTTPHeaderField: "Authorization")
-//
-//                    //ボディーを付与（2つめの辞書）
-//                    let parameter = ["post_params": editPostParams]
-//
-//                    req.httpBody = try! JSONSerialization.data(withJSONObject: parameter, options: .prettyPrinted)
-//
-//                    print(String(data: req.httpBody!, encoding: .utf8))
-//
-//                    //APIを呼ぶよ
-//                    let task = session.dataTask(with: req){(data, response, error) in
-//
-//
-//                        do {
-//                            let response: [String: Any] = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
-//
-//                            print(response)
-//
-//                            print("投稿が削除されたよ")
-//
-//                            DispatchQueue.main.async {
-//                                self.myTV.reloadData()
-//                            }
-//
-//                        } catch{
-//
-//                        }
-//
-//                    }
-//                    task.resume()
-            })
-        )
-        
-        //ここからツイート削除
-        alert.addAction(
-            UIAlertAction(
-                title: "ツイート削除",
-                style: .destructive,
-                handler: {(action) -> Void in
-                    
-                    print([(sender as AnyObject).tag!])
-                    print("\([(sender as AnyObject).tag!])番目の行が選択されました")
-                    print("ここにindexPath.rowばんめの辞書をそのまま出したい")
-                    let indexRowDictionary = (self.response?[(sender as AnyObject).tag!])!
-                    print(indexRowDictionary)
-                    let indexRowDictionaryId = indexRowDictionary["id"]!
-                    print(indexRowDictionaryId)
-                    
-                    let config: URLSessionConfiguration = URLSessionConfiguration.default
-                    
-                    let session: URLSession = URLSession(configuration: config)
-                    
-                    //URLオブジェクトの生成
-                    let number = indexRowDictionaryId
-                    print(number)
-                    let url = URL(string: "https://teachapi.herokuapp.com/posts/\(number)")!
-                    //URLRequestの生成
-                    var req: URLRequest = URLRequest(url: url)
-                    req.httpMethod = "DELETE"
-                    
-                    //ヘッダーを付与
-                    let defaults = UserDefaults.standard
-                    let myToken = defaults.string(forKey: "responseToken")!
-                    req.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                    req.setValue("Bearer " + myToken, forHTTPHeaderField: "Authorization")
-                    
-                    //APIを呼ぶよ
-                    let task = session.dataTask(with: req){(data, response, error) in
-                        
-                        
-                        do {
-                            let response: [String: Any] = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
-                            
-                            print(response)
-                            
-                            print("投稿が削除されたよ")
-                            
-                            DispatchQueue.main.async {
-                                self.myTV.reloadData()
-                            }
-                            
-                        } catch{
-                            
-                        }
-                        
-                    }
-                    task.resume()
-            })
-        )
-        
-        alert.addAction(
-            UIAlertAction(
-                title: "キャンセル",
-                style: .cancel,
-                handler: nil)
-        )
-        
-        self.present(
-            alert,
-            animated: true,
-            completion: {
-                print("アラートが表示された〜")
-        })
+//        let modalViewController = ModalViewController()
+//        modalViewController.modalPresentationStyle = .custom
+//        modalViewController.transitioningDelegate = self
+//        present(modalViewController, animated: true, completion: nil)
         
     }
 }

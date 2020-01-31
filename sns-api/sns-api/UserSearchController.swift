@@ -177,10 +177,12 @@ class UserSearchController: UITableViewController {
         
         
     }
-    @IBAction func follow(_ sender: Any) {
+    @IBAction func follow(_ sender: UIButton) {
 //        func changeButtonText() {
 //            followButton.setTitle("フォロー中", for: .normal)
 //        }
+        sender.setTitle("フォロー中", for: .normal)
+        sender.setTitleColor(.gray, for: .normal)
         
     }
     
