@@ -93,6 +93,9 @@ class UserSearchController: UITableViewController {
             myCell.userName?.text = response?[indexPath.row]["name"] as? String
             myCell.userBio?.text = response?[indexPath.row]["bio"] as? String
             myCell.userIcon.layer.cornerRadius = 35
+            myCell.followButton.addTarget(self, action: #selector(follow), for: .touchUpInside)
+            //タグを設定
+            myCell.followButton.tag = indexPath.row
             return myCell
         }
         
@@ -102,6 +105,9 @@ class UserSearchController: UITableViewController {
         myCell.userName?.text = response?[indexPath.row]["name"] as? String
         myCell.userBio?.text = response?[indexPath.row]["bio"] as? String
         myCell.userIcon.layer.cornerRadius = 35
+        myCell.followButton.addTarget(self, action: #selector(follow), for: .touchUpInside)
+        //タグを設定
+        myCell.followButton.tag = indexPath.row
         return myCell
     }
     
@@ -119,71 +125,69 @@ class UserSearchController: UITableViewController {
         return CGFloat(107)
     }
 
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("\(indexPath.row)番目の行が選択されました")
-        print("ここにindexPath.rowばんめの辞書をそのまま出したい")
-        let indexRowDictionary = (response?[indexPath.row])!
-        print(indexRowDictionary)
-        let indexRowDictionaryId = indexRowDictionary["id"]!
-        print(indexRowDictionaryId)
-        
-        //セルの選択を解除
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        let config: URLSessionConfiguration = URLSessionConfiguration.default
-        
-        let session: URLSession = URLSession(configuration: config)
-        
-        //テキストフィールドに入力されたStringと取得して変数にいれる
-        let id = indexRowDictionaryId
-        
-        //URLオブジェクトの生成
-        let defaults = UserDefaults.standard
-        let url = URL(string:"https://teachapi.herokuapp.com/users/\(id)/follow")!
-        print(url)
-        print(id)
-        //URLRequestの生成
-        var req: URLRequest = URLRequest(url: url)
-        req.httpMethod = "POST"
-        
-        //ヘッダーを付与
-        let myToken = defaults.string(forKey: "responseToken")!
-        req.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        req.setValue("Bearer " + myToken, forHTTPHeaderField: "Authorization")
-        
-        //APIを呼ぶよ
-        let task = session.dataTask(with: req){(data, response, error) in
-            print(data)
-            print(error)
-            
-            let responseString: String =  String(data: data!, encoding: .utf8)!
-            print(responseString)
-            
-            
-            do {
-                let response: [String: Any] = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
-                
-                print("フォロー完了")
-                print("フォロー中という表示にかえたい")
-                
-                
-            } catch{
-                
-            }
-            
-        }
-        task.resume()
-        
-        
-    }
+    
     @IBAction func follow(_ sender: UIButton) {
-//        func changeButtonText() {
-//            followButton.setTitle("フォロー中", for: .normal)
-//        }
         sender.setTitle("フォロー中", for: .normal)
         sender.setTitleColor(.gray, for: .normal)
         
+//        var f = sender.title
+        
+//        if f = "フォローする" {
+            
+            print([(sender as AnyObject).tag!])
+            print("\([(sender as AnyObject).tag!])番目の行が選択されました")
+            print("ここにindexPath.rowばんめの辞書をそのまま出したい")
+            let indexRowDictionary = (response?[(sender as AnyObject).tag!])!
+            print(indexRowDictionary)
+            let indexRowDictionaryId = indexRowDictionary["id"]!
+            print(indexRowDictionaryId)
+            let config: URLSessionConfiguration = URLSessionConfiguration.default
+            
+            let session: URLSession = URLSession(configuration: config)
+            
+            //テキストフィールドに入力されたStringと取得して変数にいれる
+            let id = indexRowDictionaryId
+            
+            //URLオブジェクトの生成
+            let defaults = UserDefaults.standard
+            let url = URL(string:"https://teachapi.herokuapp.com/users/\(id)/follow")!
+            print(url)
+            print(id)
+            //URLRequestの生成
+            var req: URLRequest = URLRequest(url: url)
+            req.httpMethod = "POST"
+            
+            //ヘッダーを付与
+            let myToken = defaults.string(forKey: "responseToken")!
+            req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            req.setValue("Bearer " + myToken, forHTTPHeaderField: "Authorization")
+            
+            //APIを呼ぶよ
+            let task = session.dataTask(with: req){(data, response, error) in
+                print(data)
+                print(error)
+                
+                let responseString: String =  String(data: data!, encoding: .utf8)!
+                print(responseString)
+                
+                
+                do {
+                    let response: [String: Any] = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
+                    
+                    print("フォロー完了")
+                    
+                    
+                } catch{
+                    
+                }
+                
+            }
+            task.resume()
+            
+//        }else{
+//           print("フォロー解除処理")
+//        }
+      
     }
     
 }

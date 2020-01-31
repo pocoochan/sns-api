@@ -273,7 +273,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xz-FK-F2o">
-                                <rect key="frame" x="251" y="54" width="138" height="30"/>
+                                <rect key="frame" x="251" y="57" width="138" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="138" id="MlL-St-Wkd"/>
                                 </constraints>
@@ -299,7 +299,7 @@
                             <constraint firstItem="KhR-y6-jjm" firstAttribute="leading" secondItem="h48-44-2Z4" secondAttribute="leading" constant="24" id="3ad-V3-VA2"/>
                             <constraint firstItem="UyX-sd-L1Z" firstAttribute="leading" secondItem="h48-44-2Z4" secondAttribute="leading" constant="20" id="4Ih-1O-W0V"/>
                             <constraint firstItem="6nc-nf-NkB" firstAttribute="top" secondItem="KhR-y6-jjm" secondAttribute="bottom" constant="14" id="7H4-74-a4w"/>
-                            <constraint firstItem="8xz-FK-F2o" firstAttribute="top" secondItem="h48-44-2Z4" secondAttribute="top" constant="10" id="EkV-Sh-U8C"/>
+                            <constraint firstItem="8xz-FK-F2o" firstAttribute="top" secondItem="h48-44-2Z4" secondAttribute="top" constant="13" id="EkV-Sh-U8C"/>
                             <constraint firstItem="6nc-nf-NkB" firstAttribute="leading" secondItem="Epl-Xd-6FO" secondAttribute="leading" id="aBb-7i-nxY"/>
                             <constraint firstItem="h48-44-2Z4" firstAttribute="trailing" secondItem="KhR-y6-jjm" secondAttribute="trailing" constant="74" id="ajq-yW-kpF"/>
                             <constraint firstAttribute="trailing" secondItem="6nc-nf-NkB" secondAttribute="trailing" id="bJH-QX-5oN"/>
@@ -324,6 +324,41 @@
             </objects>
             <point key="canvasLocation" x="4337.68115942029" y="143.97321428571428"/>
         </scene>
+        <!--Post Edit Or Delete Controller-->
+        <scene sceneID="CJq-m5-XlT">
+            <objects>
+                <tableViewController storyboardIdentifier="PostEditOrDeleteController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tyZ-Qw-WRj" customClass="PostEditOrDeleteController" customModule="sns_api" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JdS-Wi-2gD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="74" id="4or-dJ-VQD">
+                                <rect key="frame" x="0.0" y="28" width="414" height="74"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4or-dJ-VQD" id="Dxs-gE-Mgm">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHm-cT-TB5">
+                                            <rect key="frame" x="177" y="23" width="62" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="編集する"/>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="tyZ-Qw-WRj" id="Ooa-UD-bn4"/>
+                            <outlet property="delegate" destination="tyZ-Qw-WRj" id="DFA-qE-oqi"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mac-l5-fLu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5107.2463768115949" y="156.69642857142856"/>
+        </scene>
         <!--Post Controller-->
         <scene sceneID="Muh-di-ZUU">
             <objects>
@@ -345,7 +380,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Oa-JG-WKE">
                                 <rect key="frame" x="17" y="77" width="77" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="キャンセル"/>
+                                <state key="normal" title="キャンセル">
+                                    <color key="titleColor" red="0.18039215689999999" green="0.18823529410000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="cancelButton:" destination="Xpx-DX-PJU" eventType="touchUpInside" id="u1S-I6-O1E"/>
                                     <action selector="tweetButton:" destination="Xpx-DX-PJU" eventType="touchUpInside" id="fwX-fh-am1"/>
@@ -371,7 +408,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1SQ-NS-8d4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5154" y="171"/>
+            <point key="canvasLocation" x="5862" y="147"/>
         </scene>
         <!--Post Edit Controller-->
         <scene sceneID="ETP-Nz-fzV">
@@ -406,7 +443,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jii-x4-LEF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6541" y="94"/>
+            <point key="canvasLocation" x="6503" y="195"/>
         </scene>
         <!--タイムライン-->
         <scene sceneID="uXi-kh-dah">
@@ -794,7 +831,7 @@
             </objects>
             <point key="canvasLocation" x="2798.5507246376815" y="1640.625"/>
         </scene>
-        <!--Container View Controller-->
+        <!--マイページ-->
         <scene sceneID="AjC-Ip-kPb">
             <objects>
                 <viewController storyboardIdentifier="ContainerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wpZ-vz-lxh" customClass="ContainerViewController" customModule="sns_api" customModuleProvider="target" sceneMemberID="viewController">
@@ -810,7 +847,7 @@
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDD-48-tHc">
-                                <rect key="frame" x="324" y="718" width="70" height="70"/>
+                                <rect key="frame" x="324" y="713" width="70" height="70"/>
                                 <color key="backgroundColor" red="0.92156862750000001" green="0.41176470590000003" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="f2j-mQ-9Xv"/>
@@ -832,12 +869,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="4Kf-VB-tMp" firstAttribute="bottom" secondItem="XDD-48-tHc" secondAttribute="bottom" constant="25" id="4l6-dj-7GY"/>
+                            <constraint firstItem="4Kf-VB-tMp" firstAttribute="bottom" secondItem="XDD-48-tHc" secondAttribute="bottom" constant="30" id="4l6-dj-7GY"/>
                             <constraint firstItem="4Kf-VB-tMp" firstAttribute="trailing" secondItem="XDD-48-tHc" secondAttribute="trailing" constant="20" id="oNw-kc-YMZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4Kf-VB-tMp"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gV4-Yg-XEY"/>
+                    <navigationItem key="navigationItem" title="マイページ" id="gV4-Yg-XEY"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="er6-IM-fiQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -907,7 +944,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dY5-zo-Whi">
                                 <rect key="frame" x="34" y="101" width="77" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="キャンセル"/>
+                                <state key="normal" title="キャンセル">
+                                    <color key="titleColor" red="0.18039215689999999" green="0.18823529410000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="cancelButton:" destination="D0n-Uc-6uv" eventType="touchUpInside" id="QQo-i8-WQj"/>
                                     <action selector="cancelButton:" destination="Xpx-DX-PJU" eventType="touchUpInside" id="TmO-Xj-AR6"/>
@@ -928,7 +967,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Uo-3l-Xtr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5033" y="-504"/>
+            <point key="canvasLocation" x="4607" y="-522"/>
         </scene>
         <!--Navigation Bar View Controller-->
         <scene sceneID="twm-4W-Gzc">

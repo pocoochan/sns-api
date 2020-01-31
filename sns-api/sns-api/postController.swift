@@ -60,15 +60,6 @@ class postController: UIViewController {
                 DispatchQueue.main.async {
                     self.dismiss(animated: true, completion: nil)
                 }
-//                DispatchQueue.main.async {
-//
-//                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                    let MyPageController = storyboard.instantiateViewController(withIdentifier: "MyPageController")
-//                    self.navigationController?.pushViewController(MyPageController, animated: true)
-//                    //                            self.present(MyPageController, animated: true, completion: nil)
-                
-//                    print("マイページへの画面遷移成功だよ")
-//                }
                 
             } catch{
                 
