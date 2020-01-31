@@ -49,7 +49,15 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
             print("ツイート作成画面に遷移成功してるよ")
         }
     }
-        
+    @IBAction func gotoFollowList(_ sender: Any) {
+        DispatchQueue.main.async {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let MyFollowListController = storyboard.instantiateViewController(withIdentifier: "MyFollowListController")
+            self.navigationController?.pushViewController(MyFollowListController, animated: true)
+            print("ツイート作成画面に遷移成功してるよ")
+        }
+    }
+    
 
     //    画面に遷移するたびに読み込まれる
     override func viewWillAppear(_ animated: Bool) {
@@ -272,6 +280,8 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         
     }
+    
+    
 }
 
 class myPageCustomCell: UITableViewCell{

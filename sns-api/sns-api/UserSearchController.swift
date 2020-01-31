@@ -82,10 +82,6 @@ class UserSearchController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //        let image:UIImage = UIImage(named:"defaultIcon")!
-        //        let resizeImage = image.resized(toWidth: 50)
-        
-        
         let cellIdentifier: String = "UserSearchCustomCell"
         if let myCell: UserSearchCustomCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? UserSearchCustomCell {
             //            myCell.userProfileIcon?.image = UIImage(named: self.userPhotos[].randomElement()!)
