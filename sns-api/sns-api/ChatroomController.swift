@@ -210,10 +210,19 @@ class ChatroomController: UITableViewController {
                 //        別の画面に遷移
                 DispatchQueue.main.async {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let IndividualChatController = storyboard.instantiateViewController(withIdentifier: "IndividualChatController")
-                    self.navigationController?.pushViewController(IndividualChatController, animated: true)
+                    let chatroomPostController = storyboard.instantiateViewController(withIdentifier: "chatroomPostController") as? chatroomPostController
+                    if let chatroomPostController = chatroomPostController {
+                        chatroomPostController.indexRowDictionaryId = indexRowDictionaryId //値を受け渡す
+                        self.navigationController?.pushViewController(chatroomPostController, animated: true)
+
+//                        self.present(chatroomPostController, animated: true, completion: nil)
+                    }
+//                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                    let chatroomPostController = storyboard.instantiateViewController(withIdentifier: "chatroomPostController")
+//                    self.navigationController?.pushViewController(chatroomPostController, animated: true)
                     //                    self.present(IndividualChatController, animated: true, completion: nil)
                     print("チャットルームへの画面遷移成功だよ")
+                    
                 }
 
             } catch{

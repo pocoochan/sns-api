@@ -10,7 +10,6 @@ import UIKit
 
 class postEditController: UIViewController {
     //受け取る値を格納するもの
-    
     var indexRowDictionaryId: Any!
     
     @IBOutlet weak var postEditText: UITextField!
@@ -77,6 +76,9 @@ class postEditController: UIViewController {
         task.resume()
     }
     
+    @IBAction func cancelButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         print(indexRowDictionaryId!)

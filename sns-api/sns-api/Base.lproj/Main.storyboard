@@ -295,6 +295,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="KhR-y6-jjm" firstAttribute="leading" secondItem="h48-44-2Z4" secondAttribute="leading" constant="24" id="3ad-V3-VA2"/>
                             <constraint firstItem="UyX-sd-L1Z" firstAttribute="leading" secondItem="h48-44-2Z4" secondAttribute="leading" constant="20" id="4Ih-1O-W0V"/>
@@ -381,14 +382,14 @@
                                 <rect key="frame" x="17" y="77" width="77" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="キャンセル">
-                                    <color key="titleColor" red="0.18039215689999999" green="0.18823529410000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.50980392159999999" green="0.52156862749999999" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="cancelButton:" destination="Xpx-DX-PJU" eventType="touchUpInside" id="u1S-I6-O1E"/>
                                     <action selector="tweetButton:" destination="Xpx-DX-PJU" eventType="touchUpInside" id="fwX-fh-am1"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="いまどうしてる？" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cof-uj-qDb">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="いまどうしてる？" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cof-uj-qDb" customClass="CustomPostTextField" customModule="sns_api" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="143" width="414" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -433,8 +434,21 @@
                                     <action selector="postEditButton:" destination="I9o-dG-z1Y" eventType="touchUpInside" id="RAv-HW-PGL"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpz-1d-XS3">
+                                <rect key="frame" x="27" y="80" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="キャンセル">
+                                    <color key="titleColor" red="0.50980392159999999" green="0.52156862749999999" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButton:" destination="Xpx-DX-PJU" eventType="touchUpInside" id="LhA-eV-Lrd"/>
+                                    <action selector="cancelButton:" destination="I9o-dG-z1Y" eventType="touchUpInside" id="PwB-s1-h4n"/>
+                                    <action selector="tweetButton:" destination="Xpx-DX-PJU" eventType="touchUpInside" id="yyh-QL-v3Z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="tintColor" red="0.92156862750000001" green="0.41176470590000003" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="OuV-0x-9Cy"/>
                     </view>
                     <connections>
@@ -498,6 +512,7 @@
                                         <constraint firstItem="BPK-4g-Dnf" firstAttribute="leading" secondItem="h7O-dv-3iF" secondAttribute="trailing" constant="20" id="uZ1-BR-K8F"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="post" destination="BPK-4g-Dnf" id="wYy-QH-Z9Z"/>
                                     <outlet property="postDate" destination="aPB-YH-zbK" id="DPs-YR-Ga6"/>
@@ -517,8 +532,9 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oQ6-q3-Zut" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="kVs-e9-rgd"/>
             </objects>
-            <point key="canvasLocation" x="1864" y="948"/>
+            <point key="canvasLocation" x="1863.7681159420292" y="947.54464285714278"/>
         </scene>
         <!--チャットルーム-->
         <scene sceneID="NKq-UF-fRk">
@@ -593,15 +609,15 @@
             <objects>
                 <tableViewController storyboardIdentifier="IndividualChatController" id="Odm-wY-gFV" customClass="IndividualChatController" customModule="sns_api" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="y00-Gd-N3e">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="415" height="857"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyChatCustomCell" rowHeight="115" id="4ok-LW-1dv" customClass="MyChatCustomCell" customModule="sns_api" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="115"/>
+                                <rect key="frame" x="0.0" y="28" width="415" height="115"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4ok-LW-1dv" id="ArG-12-ZSZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="115"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="415" height="115"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbh-wU-2Rs">
@@ -611,7 +627,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEm-js-Dnt">
-                                            <rect key="frame" x="110" y="53" width="264" height="20.5"/>
+                                            <rect key="frame" x="110" y="53" width="265" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.18039215689999999" green="0.18823529410000001" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -626,7 +642,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjn-GB-I2V">
-                                            <rect key="frame" x="358.5" y="22" width="35.5" height="17"/>
+                                            <rect key="frame" x="359.5" y="22" width="35.5" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.50980392159999999" green="0.52156862749999999" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -660,7 +676,73 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="klo-ig-GMp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4673.913043478261" y="945.53571428571422"/>
+            <point key="canvasLocation" x="4720" y="925"/>
+        </scene>
+        <!--Chatroom Post Controller-->
+        <scene sceneID="Zn1-kG-NhB">
+            <objects>
+                <viewController storyboardIdentifier="chatroomPostController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="P5B-pf-h8Z" customClass="chatroomPostController" customModule="sns_api" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q0J-rx-73V">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y4m-97-rzD">
+                                <rect key="frame" x="0.0" y="81" width="415" height="776"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="Odm-wY-gFV" kind="embed" id="Zyz-Vf-aa4"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sC0-6E-NMd">
+                                <rect key="frame" x="0.0" y="761" width="416" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQm-xB-mGN">
+                                        <rect key="frame" x="369" y="22" width="21" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.92156862750000001" green="0.41176470590000003" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" image="paperplane" catalog="system"/>
+                                        <connections>
+                                            <action selector="chatMessageSent:" destination="P5B-pf-h8Z" eventType="touchUpInside" id="8mI-Zr-hTM"/>
+                                            <action selector="messageSent:" destination="P5B-pf-h8Z" eventType="touchUpInside" id="eBZ-dj-21W"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="メッセージを作成" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6qc-Vw-NXK" customClass="CustomChatTextField" customModule="sns_api" customModuleProvider="target">
+                                        <rect key="frame" x="30" y="16" width="330" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number">
+                                                <string key="keyPath">layer.cornerRadius	</string>
+                                                <integer key="value" value="100"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="chatNewPost:" destination="ImG-Og-8de" eventType="editingDidEnd" id="Uud-nQ-Pco"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="topline">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ihT-qg-eig"/>
+                    </view>
+                    <connections>
+                        <outlet property="chatNewPost" destination="6qc-Vw-NXK" id="hFv-jC-BO4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wgQ-wj-nU5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="ImG-Og-8de" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4460.8695652173919" y="1620.5357142857142"/>
         </scene>
         <!--Search Controller-->
         <scene sceneID="WYA-FB-X63">
@@ -1091,6 +1173,7 @@
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="magnifyingglass" catalog="system" width="64" height="56"/>
         <image name="message" catalog="system" width="64" height="56"/>
+        <image name="paperplane" catalog="system" width="64" height="60"/>
         <image name="pencil" catalog="system" width="64" height="56"/>
     </resources>
 </document>

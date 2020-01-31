@@ -135,6 +135,13 @@ class AllTimelineController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(107)
     }
+    
+
+    //下にスワイプしたらタイムラインが更新される実装をしたかったができなかった
+//    @IBOutlet var down: [UISwipeGestureRecognizer]!
+//    @IBAction func down(_ sender: UISwipeGestureRecognizer) {
+//         print("スワイプされているよ")
+//    }
 
 }
 
@@ -156,5 +163,7 @@ extension UIImage {
         return UIGraphicsGetImageFromCurrentImageContext()
     }
    
+    
+    
 }
 

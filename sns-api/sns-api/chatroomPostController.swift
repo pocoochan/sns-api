@@ -1,31 +1,40 @@
+
 //
-//  postController.swift
+//  chatroomPostController.swift
 //  sns-api
 //
-//  Created by saya on 2020/01/20.
+//  Created by saya on 2020/01/31.
 //  Copyright © 2020 saya. All rights reserved.
 //
 
 import UIKit
-
-class postController: UIViewController {
-
-    @IBOutlet weak var postWrite: UITextField!
-    @IBAction func tweetButton(_ sender: Any) {
+class chatroomPostController: UIViewController {
+    
+    //受け取る値を格納するもの
+    var indexRowDictionaryId: Any!
+    
+    @IBOutlet weak var chatNewPost: UITextField!
+   
+    @IBAction func messageSent(_ sender: Any) {
+    }
+    
+    @IBAction func chatMessageSent(_ sender: Any) {
         let config: URLSessionConfiguration = URLSessionConfiguration.default
         
         let session: URLSession = URLSession(configuration: config)
         
         //テキストフィールドに入力されたStringと取得して変数にいれる
-        let text = postWrite.text
+        let text = chatNewPost.text
         
-    //その変数たちを集めた変数をつくって、それをJSON形式でボディに付与する（1つめの辞書）
-        let newPostParams = [
+        //その変数たちを集めた変数をつくって、それをJSON形式でボディに付与する（1つめの辞書）
+        let chatPostParams = [
             "text": text,
         ]
         
         //URLオブジェクトの生成
-        let url = URL(string: "https://teachapi.herokuapp.com/posts")!
+        let number = indexRowDictionaryId!
+        print(number)
+        let url = URL(string: "https://teachapi.herokuapp.com/chatrooms/\(number)/messages")!
         //URLRequestの生成
         var req: URLRequest = URLRequest(url: url)
         req.httpMethod = "POST"
@@ -37,7 +46,7 @@ class postController: UIViewController {
         req.setValue("Bearer " + myToken, forHTTPHeaderField: "Authorization")
         
         //ボディーを付与（2つめの辞書）
-        let parameter = ["post_params": newPostParams]
+        let parameter = ["message_params": chatPostParams]
         
         req.httpBody = try! JSONSerialization.data(withJSONObject: parameter, options: .prettyPrinted)
         
@@ -58,7 +67,7 @@ class postController: UIViewController {
                 print(response)
                 
                 DispatchQueue.main.async {
-                    self.dismiss(animated: true, completion: nil)
+//                    self.tableView.reloadData()
                 }
                 
             } catch{
@@ -67,25 +76,28 @@ class postController: UIViewController {
             
         }
         task.resume()
+        
     }
-    
-    
-    @IBAction func cancelButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        //キーボードを閉じる
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+            return true
+        }
+        
+        func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            self.view.endEditing(true)
+        }
+        
     }
-    
- 
 }
 
-class CustomPostTextField: UITextField {
+class CustomChatTextField: UITextField {
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.frame.size.height = 300 // ここ変える
+        self.frame.size.height = 30 // ここ変える
         self.borderStyle = .none
+        self.layer.cornerRadius = 10
     }
 }
