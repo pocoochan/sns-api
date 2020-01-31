@@ -597,7 +597,14 @@
                             <outlet property="delegate" destination="fVd-Dc-lAM" id="ods-to-uDZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="チャットルーム" id="btW-3p-Hyu"/>
+                    <navigationItem key="navigationItem" title="チャットルーム" id="btW-3p-Hyu">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="PWd-nc-W6j">
+                            <color key="tintColor" red="0.92156862750000001" green="0.41176470590000003" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="chatroomCreate:" destination="fVd-Dc-lAM" id="0rF-jt-DBb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s6b-22-rmB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -609,7 +616,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="IndividualChatController" id="Odm-wY-gFV" customClass="IndividualChatController" customModule="sns_api" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="y00-Gd-N3e">
-                        <rect key="frame" x="0.0" y="0.0" width="415" height="857"/>
+                        <rect key="frame" x="0.0" y="0.0" width="415" height="776"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
