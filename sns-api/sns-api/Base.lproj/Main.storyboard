@@ -683,7 +683,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="klo-ig-GMp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4720" y="925"/>
+            <point key="canvasLocation" x="4759" y="2081"/>
         </scene>
         <!--Chatroom Post Controller-->
         <scene sceneID="Zn1-kG-NhB">
@@ -749,93 +749,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wgQ-wj-nU5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="ImG-Og-8de" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4460.8695652173919" y="1620.5357142857142"/>
-        </scene>
-        <!--Search Controller-->
-        <scene sceneID="WYA-FB-X63">
-            <objects>
-                <viewController storyboardIdentifier="SearchController" id="XM9-kS-jKc" customClass="SearchController" customModule="sns_api" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="VzP-3K-RqC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jD7-jn-fG2">
-                                <rect key="frame" x="0.0" y="99" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kf4-Uz-c8F">
-                                <rect key="frame" x="341" y="56" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="検索"/>
-                                <connections>
-                                    <action selector="searchButton:" destination="XM9-kS-jKc" eventType="touchUpInside" id="ZSq-Ng-8r2"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ページ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rbu-Wl-z76">
-                                <rect key="frame" x="8" y="52" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="リミット" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7EP-4t-qYC">
-                                <rect key="frame" x="110" y="50" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8an-cq-XZK">
-                                <rect key="frame" x="43" y="586" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="フォローする"/>
-                                <connections>
-                                    <action selector="follow:" destination="XM9-kS-jKc" eventType="touchUpInside" id="uWj-ha-TxC"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DM7-Ws-OUV">
-                                <rect key="frame" x="202" y="586" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="フォロー解除"/>
-                                <connections>
-                                    <action selector="follow:" destination="XM9-kS-jKc" eventType="touchUpInside" id="EF3-45-EQ4"/>
-                                    <action selector="unFollow:" destination="XM9-kS-jKc" eventType="touchUpInside" id="9lv-jY-h2V"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a0w-n7-BGg">
-                                <rect key="frame" x="38" y="534" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WQH-nB-SIh">
-                                <rect key="frame" x="197" y="534" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="検索キーワード" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KXY-At-2hV">
-                                <rect key="frame" x="215" y="49" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="aa9-7g-9af"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="bZ4-97-1uf"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="followId" destination="a0w-n7-BGg" id="WHn-87-Rbp"/>
-                        <outlet property="searchLimit" destination="7EP-4t-qYC" id="Tqg-qD-Tas"/>
-                        <outlet property="searchPage" destination="Rbu-Wl-z76" id="We9-ye-vWL"/>
-                        <outlet property="searchQuery" destination="KXY-At-2hV" id="n77-2n-X5k"/>
-                        <outlet property="unFollow" destination="WQH-nB-SIh" id="MJX-ed-gNy"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aiU-at-VyM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5513.04347826087" y="853.79464285714278"/>
+            <point key="canvasLocation" x="3997" y="2079"/>
         </scene>
         <!--User Search Controller-->
         <scene sceneID="fwi-rB-4bN">
@@ -1172,6 +1086,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d9O-3k-chP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3427.5362318840585" y="143.97321428571428"/>
+        </scene>
+        <!--Chat Create Controller-->
+        <scene sceneID="hTj-5L-eg5">
+            <objects>
+                <viewController storyboardIdentifier="ChatCreateController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lbo-bB-NVs" customClass="ChatCreateController" customModule="sns_api" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DHT-U4-Yox">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Udp-QQ-lgu">
+                                <rect key="frame" x="17" y="77" width="77" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="キャンセル">
+                                    <color key="titleColor" red="0.50980392159999999" green="0.52156862749999999" blue="0.52549019610000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButton:" destination="lbo-bB-NVs" eventType="touchUpInside" id="Gwk-9W-w8V"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="チャットタイトルはなににする？" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EIU-9b-cqk" customClass="CustomChatNameTextField" customModule="sns_api" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="143" width="414" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" keyboardKey="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="twitter"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNI-vy-pch">
+                                <rect key="frame" x="245" y="85" width="153" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="チャットルームを作成">
+                                    <color key="titleColor" red="0.92156862750000001" green="0.41176470590000003" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="chatroomCreate:" destination="lbo-bB-NVs" eventType="touchUpInside" id="I6M-Xm-Oay"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ob8-oG-s7H"/>
+                    </view>
+                    <connections>
+                        <outlet property="chatName" destination="EIU-9b-cqk" id="6Iy-Vu-sfL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Kc-J4-6xT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4734.7826086956529" y="941.51785714285711"/>
         </scene>
     </scenes>
     <resources>
