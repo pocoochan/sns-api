@@ -164,6 +164,10 @@ class UserEditViewController: UIViewController {
         
     }
     
+    @IBAction func cancelButton(_ sender: Any) {
+       self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //入力フォームにj初期値で現在の名前、自己紹介を表示させる
@@ -178,7 +182,7 @@ class UserEditViewController: UIViewController {
 //        self.navigationController!.navigationBar.titleTextAttributes = [
 //            .foregroundColor: UIColor.white
 //        ]
-
        
     }
+
 }
