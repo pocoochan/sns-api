@@ -13,6 +13,7 @@ class UserEditViewController: UIViewController {
     @IBOutlet weak var editName: UITextField!
     @IBOutlet weak var editBio: UITextField!
     
+    //ユーザー情報編集
     @IBAction func userEditSave(_ sender: Any) {
         let config: URLSessionConfiguration = URLSessionConfiguration.default
         
@@ -76,6 +77,54 @@ class UserEditViewController: UIViewController {
 //                    //                            self.present(MyPageController, animated: true, completion: nil)
 //                    print("マイページへの画面遷移成功だよ")
 //                }
+                
+            } catch{
+                
+            }
+            
+        }
+        task.resume()
+    }
+    
+    //ユーザー削除ボタン
+    @IBAction func userDelete(_ sender: Any) {
+        let config: URLSessionConfiguration = URLSessionConfiguration.default
+        
+        let session: URLSession = URLSession(configuration: config)
+        
+        //URLオブジェクトの生成
+        let defaults = UserDefaults.standard
+        let myId = defaults.string(forKey: "responseId")!
+        print(myId)
+        let url = URL(string: "https://teachapi.herokuapp.com/users/\(myId)")!
+        //URLRequestの生成
+        var req: URLRequest = URLRequest(url: url)
+        req.httpMethod = "DELETE"
+        
+        //ヘッダーを付与
+        let myToken = defaults.string(forKey: "responseToken")!
+        req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        req.setValue("Bearer " + myToken, forHTTPHeaderField: "Authorization")
+        
+        //APIを呼ぶよ
+        let task = session.dataTask(with: req){(data, response, error) in
+
+            
+            do {
+                let response: [String: Any] = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
+                
+                print(response)
+
+                print("ユーザー削除されたよ")
+                
+                
+//                DispatchQueue.main.async {
+//                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                    let ViewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
+//                    self.navigationController?.pushViewController(ViewController, animated: true)
+//                    print("ユーザーが削除されてサインインページに遷移したよ")
+//                }
+                
                 
             } catch{
                 
