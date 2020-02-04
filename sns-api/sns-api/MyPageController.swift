@@ -54,15 +54,22 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let MyFollowListController = storyboard.instantiateViewController(withIdentifier: "MyFollowListController")
             self.navigationController?.pushViewController(MyFollowListController, animated: true)
-            print("ツイート作成画面に遷移成功してるよ")
+        }
+    }
+    
+    @IBAction func gotoFollwerList(_ sender: Any) {
+        DispatchQueue.main.async {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let FollowerListController = storyboard.instantiateViewController(withIdentifier: "FollowerListController")
+            self.navigationController?.pushViewController(FollowerListController, animated: true)
+            print("フォロワーリスト画面に遷移成功してるよ")
         }
     }
     
 
-    //    画面に遷移するたびに読み込まれる
-    override func viewWillAppear(_ animated: Bool) {
+//        画面に遷移するたびに読み込まれる
+       override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
 
         
         let config: URLSessionConfiguration = URLSessionConfiguration.default
@@ -278,10 +285,7 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
                 print("アラートが表示された〜")
         })
         
-        
     }
-    
-    
 }
 
 class myPageCustomCell: UITableViewCell{
@@ -291,5 +295,3 @@ class myPageCustomCell: UITableViewCell{
     @IBOutlet weak var postDate: UILabel!
     @IBOutlet weak var postEditButton: UIButton!
 }
-
-

@@ -15,6 +15,8 @@ class UserSearchController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //IFでもし、フォローリストにIDがあれば、
+        
         // ユーザー一覧をよぶAPI
         let config: URLSessionConfiguration = URLSessionConfiguration.default
                
@@ -101,9 +103,9 @@ class UserSearchController: UITableViewController {
         myCell.userName?.text = response?[indexPath.row]["name"] as? String
         myCell.userBio?.text = response?[indexPath.row]["bio"] as? String
         myCell.userIcon.layer.cornerRadius = 35
-        myCell.followButton.addTarget(self, action: #selector(follow), for: .touchUpInside)
+//        myCell.followButton.addTarget(self, action: #selector(follow), for: .touchUpInside)
         //タグを設定
-        myCell.followButton.tag = indexPath.row
+//        myCell.followButton.tag = indexPath.row
         return myCell
     }
     
@@ -125,10 +127,6 @@ class UserSearchController: UITableViewController {
     @IBAction func follow(_ sender: UIButton) {
         sender.setTitle("フォロー中", for: .normal)
         sender.setTitleColor(.gray, for: .normal)
-        
-//        var f = sender.title
-        
-//        if f = "フォローする" {
             
             print([(sender as AnyObject).tag!])
             print("\([(sender as AnyObject).tag!])番目の行が選択されました")
@@ -141,7 +139,6 @@ class UserSearchController: UITableViewController {
             
             let session: URLSession = URLSession(configuration: config)
             
-            //テキストフィールドに入力されたStringと取得して変数にいれる
             let id = indexRowDictionaryId
             
             //URLオブジェクトの生成

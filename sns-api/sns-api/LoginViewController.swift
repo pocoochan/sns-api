@@ -85,7 +85,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             
                             let storyboard = UIStoryboard(name: "Main", bundle: nil)
                             let MyPageController = storyboard.instantiateViewController(withIdentifier: "TabBarController")
-//                            self.navigationController?.pushViewController(MyPageController, animated: true)
                             MyPageController.modalPresentationStyle = .fullScreen
                             self.present(MyPageController, animated: true, completion: nil)
                             

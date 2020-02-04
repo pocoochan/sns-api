@@ -20,22 +20,7 @@ class ChatroomController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         
-        // searchBarのプレースホルダー
-        searchController.searchBar.placeholder = ""
-        
-        // searchBarフォーカス時に背景色を暗くするか？
-        searchController.obscuresBackgroundDuringPresentation = true
-        
-        // searchBarのスタイル
-        searchController.searchBar.searchBarStyle = UISearchBar.Style.prominent
-        
-        // searchbarのサイズを調整
-        searchController.searchBar.sizeToFit()
-        
-        // tableViewのヘッダーにsearchController.searchBarをセット
-        tableView.tableHeaderView = searchController.searchBar
         
         //APIと通信
         let config: URLSessionConfiguration = URLSessionConfiguration.default
@@ -46,7 +31,7 @@ class ChatroomController: UITableViewController {
         //テキストフィールドに入力[]されたStringと取得して変数にいれる
         //        let page = searchPage.text
         //        let limit = searchLimit.text
-        //        let query = searchQuery.text
+//                let query = searchController.searchBar.searchTextField.text
         
         //URLを組み立てている
         var urlComponents = URLComponents()
@@ -56,7 +41,7 @@ class ChatroomController: UITableViewController {
         urlComponents.queryItems = [
             //            URLQueryItem(name: "page", value: page),
             //            URLQueryItem(name: "limit", value: limit),
-            //            URLQueryItem(name: "query", value: query)
+//                        URLQueryItem(name: "query", value: query)
         ]
         
         let url: URL = urlComponents.url!
@@ -95,6 +80,7 @@ class ChatroomController: UITableViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [
                .foregroundColor: UIColor(red: 46/255, green: 48/255, blue: 49/255, alpha: 1.0)
                ]
+        
 
     }
     

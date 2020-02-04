@@ -76,7 +76,16 @@ class postController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    }
+    
+    //キーボードを閉じる
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
  
@@ -85,7 +94,9 @@ class postController: UIViewController {
 class CustomPostTextField: UITextField {
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.frame.size.height = 300 // ここ変える
+//        self.frame.size.height = 300 // ここ変える
         self.borderStyle = .none
     }
 }
+
+

@@ -1,14 +1,14 @@
 //
-//  MyFollowListController.swift
+//  FollowerList.swift
 //  sns-api
 //
-//  Created by saya on 2020/02/01.
+//  Created by saya on 2020/02/04.
 //  Copyright © 2020 saya. All rights reserved.
 //
 
 import UIKit
 
-class MyFollowListController: UITableViewController {
+class FollowerListController: UITableViewController {
 
     var response: [[String: Any]]?
 
@@ -30,7 +30,7 @@ class MyFollowListController: UITableViewController {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "teachapi.herokuapp.com"
-        urlComponents.path = "/users/\(number)/followings"
+        urlComponents.path = "/users/\(number)/followers"
         urlComponents.queryItems = [
             //                   URLQueryItem(name: "page", value: page),
             //                   URLQueryItem(name: "limit", value: limit),
@@ -83,19 +83,19 @@ class MyFollowListController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cellIdentifier: String = "MyFollowListCustomCell"
-        if let myCell: MyFollowListCustomCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? MyFollowListCustomCell {
+        let cellIdentifier: String = "FollowerListCustomCell"
+        if let myCell: FollowerListCustomCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? FollowerListCustomCell {
             myCell.userIcon?.image = UIImage(named: "defaultIcon")
             myCell.userName?.text = response?[indexPath.row]["name"] as? String
             myCell.userBio?.text = response?[indexPath.row]["bio"] as? String
             myCell.userIcon?.layer.cornerRadius = 35
-            myCell.unFollowButton?.addTarget(self, action: #selector(unFollow), for: .touchUpInside)
+            myCell.followBackButton?.addTarget(self, action: #selector(followBackButtonPush), for: .touchUpInside)
             //タグを設定
-            myCell.unFollowButton?.tag = indexPath.row
+            myCell.followBackButton?.tag = indexPath.row
             return myCell
         }
         
-        let myCell = MyFollowListCustomCell(style: .default, reuseIdentifier: "MyFollowListCustomCell")
+        let myCell = FollowerListCustomCell(style: .default, reuseIdentifier: "FollowerListCustomCell")
         myCell.userIcon?.image = UIImage(named: "defaultIcon")
         myCell.userName?.text = response?[indexPath.row]["name"] as? String
         myCell.userBio?.text = response?[indexPath.row]["bio"] as? String
@@ -118,9 +118,10 @@ class MyFollowListController: UITableViewController {
         return CGFloat(107)
     }
 
-
-    
-    @IBAction func unFollow(_ sender: Any) {
+    @IBAction func followBackButtonPush(_ sender: Any) {
+        (sender as AnyObject).setTitle("フォロー中", for: .normal)
+        (sender as AnyObject).setTitleColor(.gray, for: .normal)
+        
         print([(sender as AnyObject).tag!])
         print("\([(sender as AnyObject).tag!])番目の行が選択されました")
         print("ここにindexPath.rowばんめの辞書をそのまま出したい")
@@ -136,11 +137,12 @@ class MyFollowListController: UITableViewController {
         
         //URLオブジェクトの生成
         let defaults = UserDefaults.standard
-        let url = URL(string: "https://teachapi.herokuapp.com/users/\(id)/follow")!
+        let url = URL(string:"https://teachapi.herokuapp.com/users/\(id)/follow")!
         print(url)
+        print(id)
         //URLRequestの生成
         var req: URLRequest = URLRequest(url: url)
-        req.httpMethod = "DELETE"
+        req.httpMethod = "POST"
         
         //ヘッダーを付与
         let myToken = defaults.string(forKey: "responseToken")!
@@ -149,18 +151,18 @@ class MyFollowListController: UITableViewController {
         
         //APIを呼ぶよ
         let task = session.dataTask(with: req){(data, response, error) in
+            print(data)
+            print(error)
+            
+            let responseString: String =  String(data: data!, encoding: .utf8)!
+            print(responseString)
             
             
             do {
                 let response: [String: Any] = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
                 
-                print(response)
+                print("フォロー完了")
                 
-                print("フォローが解除されたよ")
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
                 
             } catch{
                 
@@ -169,11 +171,13 @@ class MyFollowListController: UITableViewController {
         }
         task.resume()
     }
+    
+    
 }
 
-class MyFollowListCustomCell: UITableViewCell {
+class FollowerListCustomCell: UITableViewCell {
     @IBOutlet weak var userIcon: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userBio: UILabel!
-    @IBOutlet weak var unFollowButton: UIButton!
+    @IBOutlet weak var followBackButton: UIButton!
 }

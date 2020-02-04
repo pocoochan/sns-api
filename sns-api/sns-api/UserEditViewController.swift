@@ -130,15 +130,6 @@ class UserEditViewController: UIViewController {
                             
                             print("ユーザー削除されたよ")
                             
-                            
-                            //                            DispatchQueue.main.async {
-                            //                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                            //                                let ViewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
-                            //                                self.navigationController?.pushViewController(ViewController, animated: true)
-                            //                                print("ユーザーが削除されてサインインページに遷移したよ")
-                            //                            }
-                            
-                            
                         } catch{
                             
                         }
