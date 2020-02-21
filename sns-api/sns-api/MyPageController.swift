@@ -70,7 +70,11 @@ class MyPageController: UIViewController, UITableViewDelegate, UITableViewDataSo
 //        画面に遷移するたびに読み込まれる
        override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
+         self.myTV.reloadData()
+//        DispatchQueue.main.async {
+//
+//        }
         
         let config: URLSessionConfiguration = URLSessionConfiguration.default
         

@@ -58,7 +58,11 @@ class postController: UIViewController {
                 print(response)
                 
                 DispatchQueue.main.async {
-                    self.dismiss(animated: true, completion: nil)
+//                    self.dismiss(animated: true, completion: nil)
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let MyPageController = storyboard.instantiateViewController(withIdentifier: "MyPageController")
+                    MyPageController.modalPresentationStyle = .fullScreen
+                    self.present(MyPageController, animated: false, completion: nil)
                 }
                 
             } catch{

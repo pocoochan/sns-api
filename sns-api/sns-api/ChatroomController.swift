@@ -9,7 +9,7 @@
 import UIKit
 
 class ChatroomController: UITableViewController {
-    var userPhotos = ["1","2","3","4","5","6","7","8","9","10"]
+    var userPhotos = ["1","2","3","4","5","6","7","8","9","10","1","2","3","4","5","6","7","8","9","10"]
     
     /*
      チャットルーム一覧を取得するAPI
